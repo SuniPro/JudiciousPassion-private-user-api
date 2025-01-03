@@ -37,7 +37,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         //CSRF, CORS
-        http.csrf((csrf) -> csrf.disable());
+        http.csrf(AbstractHttpConfigurer::disable);
         http.cors(Customizer.withDefaults());
 
         //세션 관리 상태 없음으로 구성, Spring Security가 세션 생성 or 사용 X
@@ -45,7 +45,7 @@ public class SecurityConfig {
                 SessionCreationPolicy.STATELESS));
 
         //FormLogin, BasicHttp 비활성화
-        http.formLogin((form) -> form.disable());
+        http.formLogin(AbstractHttpConfigurer::disable);
         http.httpBasic(AbstractHttpConfigurer::disable);
 
 

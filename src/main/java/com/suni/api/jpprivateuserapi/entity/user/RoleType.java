@@ -6,7 +6,7 @@ import lombok.Getter;
 
 @Getter
 public enum RoleType {
-    ADMIN, WRITER, GUEST;
+    ADMIN, USER, GUEST;
 
     @JsonCreator
     public static RoleType fromString(String role) {

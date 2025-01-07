@@ -10,11 +10,19 @@ import java.time.LocalDateTime;
 @Setter
 public class CustomUserDto extends UserDTO {
 
+    private String username;
+
     private String email;
 
     private String password;
 
     private RoleType roleType;
+
+    private String profileImage;
+
+    private String profileMessage;
+
+    private String personalColor;
 
     private LocalDateTime insertDate;
 

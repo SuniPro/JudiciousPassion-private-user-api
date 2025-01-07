@@ -2,10 +2,9 @@ package com.suni.api.jpprivateuserapi.service.user;
 
 import com.suni.api.jpprivateuserapi.dto.SignInRequestDTO;
 import com.suni.api.jpprivateuserapi.dto.UserDTO;
-import com.suni.api.jpprivateuserapi.entity.user.User;
+import com.suni.api.jpprivateuserapi.entity.user.RoleType;
 import com.suni.api.jpprivateuserapi.response.UserStatus;
-
-import java.util.Optional;
+import org.springframework.web.multipart.MultipartFile;
 
 public interface UserService {
 
@@ -15,5 +14,11 @@ public interface UserService {
 
     UserStatus passwordChange(UserDTO userDTO);
 
-    Optional<User> userCheck(String email);
+    UserDTO profileImageChange(String email, MultipartFile multipartFile);
+
+    UserDTO profileMessageChange(UserDTO userDTO);
+
+    UserDTO profilePersonalColorChange(UserDTO userDTO);
+
+    UserDTO checkMe(String email);
 }

@@ -48,6 +48,7 @@ public class JwtUtil {
      */
     private String createToken(CustomUserDto customUserDto, long expireTime) {
         Claims claims = Jwts.claims();
+        claims.put("username", customUserDto.getUsername());
         claims.put("email", customUserDto.getEmail());
         claims.put("role", customUserDto.getRoleType());
 
@@ -73,6 +74,9 @@ public class JwtUtil {
         return parseClaims(token).get("email", String.class);
     }
 
+    public String getUsername(String token) {
+        return parseClaims(token).get("username", String.class);
+    }
 
     /**
      * JWT 검증

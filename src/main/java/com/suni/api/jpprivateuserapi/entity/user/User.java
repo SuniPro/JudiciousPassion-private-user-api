@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.ToString;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -15,9 +16,10 @@ import java.time.LocalDateTime;
 @Entity
 @Table
 @Getter
-@Builder
+@Builder(toBuilder = true)
 @AllArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
+@ToString
 public class User {
 
     @Id
@@ -30,6 +32,21 @@ public class User {
 
     @Column(name = "email")
     private String email;
+
+    @Column(name = "username")
+    private String username;
+
+    @Column(name = "phone_number")
+    private String phoneNumber;
+
+    @Column(name = "profile_image")
+    private String profileImage;
+
+    @Column(name = "profile_message")
+    private String profileMessage;
+
+    @Column(name = "personal_color")
+    private String personalColor;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "role_type", nullable = false)

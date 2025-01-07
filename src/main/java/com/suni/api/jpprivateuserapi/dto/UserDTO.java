@@ -12,7 +12,17 @@ public class UserDTO {
 
     private Integer id;
 
+    private String username;
+
+    private String phoneNumber;
+
     private String email;
+
+    private String profileImage;
+
+    private String profileMessage;
+
+    private String personalColor;
 
     private String password;
 
